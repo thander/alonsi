@@ -1,0 +1,457 @@
+.content {
+  .main-window {
+    width: 718px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 100px;
+    box-shadow: 0px 0px 2px 0px #6B6B6B;
+    .container {
+      background-image: url("/assets/rihana.jpg");
+      background-size: 100%;
+      background-position: -1px;
+      color: white;
+      .header {
+        height: 23px;
+        background: #37C793;
+        padding: 16px;
+        .window-control {
+          display: inline-block;
+          margin-left: 9px;
+          vertical-align: middle;
+          span.point {
+            &:hover {
+              opacity: 0.8;
+            }
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 12px;
+            &.white {
+              background: white;
+            }
+            &.green {
+              background: #47836d;
+            }
+            &.silver {
+              background: #41A883;
+            }
+          }
+        }
+        span.title {
+          width: 100px;
+          display: inline-block;
+          margin: 0 auto;
+          text-align: center;
+          position: absolute;
+          left: 50%;
+          margin-left: -50px;
+          color: white;
+        }
+        .search-wrap {
+          float:right;
+          input.search-field {
+            background: #41A883;
+            border: 0;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 300;
+            padding: 4px 9px;
+            font-family: 'Roboto', sans-serif;
+            padding-left: 23px;
+            color: white;
+            width: 124px;
+            background-image: url("/assets/search-icon.png");
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: 7px;
+          }
+        }
+      }
+      .menu-wrap {
+        height: 54px;
+        background: rgba(255, 255, 255, 0.26);
+        ul {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          margin-left: 10px;
+          li {
+            display: inline-block;
+            vertical-align: top;
+            &.active {
+              a {
+                background: rgba(255, 255, 255, 0.1);
+              }
+            }
+            &.discover{
+              a {
+                &:before {
+                  background-image: url("/assets/menu-icon1.png");
+                }
+              }
+            }
+            &.follow{
+              a {
+                &:before {
+                  background-image: url("/assets/menu-icon2.png");
+                }
+              }
+            }
+            &.inbox{
+              a {
+                &:before {
+                  background-image: url("/assets/menu-icon3.png");
+                }
+              }
+            }
+            &.playlists{
+              a {
+                &:before {
+                  background-image: url("/assets/menu-icon4.png");
+                }
+              }
+            }
+            &.devices{
+              a {
+                &:before {
+                  background-image: url("/assets/menu-icon5.png");
+                }
+              }
+            }
+            a {
+              padding: 18px 14px;
+              display: inline-block;
+              vertical-align: middle;
+              color: white;
+              font-weight: 300;
+              font-size: 13px;
+              cursor: pointer;
+              text-decoration: none;
+              &:before {
+                content: "";
+                display: inline-block;
+                vertical-align: top;
+                background-size: 100%;
+                width: 19px;
+                height: 19px;
+                margin-right: 12px;
+              }
+              &:hover {
+                background: rgba(255, 255, 255, 0.1);
+              }
+            }
+          }
+        }
+      }
+      .content-wrap {
+        background: rgba(255, 255, 255, 0.13);
+        padding-bottom: 21px;
+        h3 {
+          padding: 12px 24px;
+          margin: 0;
+          font-size: 23px;
+          font-weight: 100;
+          opacity: 0.9;
+        }
+        .playlist-wrap {
+          height: 242px;
+          overflow-y: scroll;
+          table {
+            border-spacing:0;
+            margin-top: 0;
+            width:100%;
+            thead {
+              th {
+                font-size: 12px;
+                font-weight: 400;
+                text-align:left;
+                padding-bottom: 5px;
+                &.padding {
+                  width: 23px;
+                }
+                &.like {
+                  width: 18px;
+                }
+                &.addtrack {
+                  width: 30px;
+                }
+              }
+            }
+            tbody {
+              tr {
+                border-spacing: 0;
+                &.active {
+                  background: rgba(48, 127, 113, 0.67);
+                  td {
+                    color:#8cc7bd;
+                  }
+                }
+                td {
+                  border-spacing: 0;
+                  font-size:13px;
+                  font-weight: 200;
+                  padding: 3px 2px;
+                  &.name, &.artist, &.album, &.time {
+                    cursor: pointer;
+                    &:hover {
+                      color:#8cc7bd;
+                    }
+                    span {
+                      overflow: hidden;
+                      float: left;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                    }
+                  }
+                  &.name {
+                    width: 320px;
+                    span {
+                      width: 320px;
+                    }
+                  }
+                  &.artist {
+                    width: 100px;
+                    span {
+                      width: 100px;
+                    }
+                  }
+                  &.album {
+                    width: 100px;
+                    span {
+                      width: 100px;
+                    }
+                  }
+                  span.like-icon {
+                    font-family: 'alonsi';
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: middle;
+                    color: white;
+                    &:hover {
+                      color:#dd6a6a;
+                    }
+                    &:before {
+                      content: "\e800";
+                      display: inline-block;
+                      font-size: 12px;
+                      position: absolute;
+                      top: -7px;
+                      cursor: pointer;
+                    }
+                  }
+                  span.add-icon {
+                    font-family: 'alonsi';
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: middle;
+                    color: white;
+                    &:hover {
+                      color:#37C793;
+                    }
+                    &:before {
+                      content: "\e802";
+                      display: inline-block;
+                      font-size: 19px;
+                      padding-bottom: 0px;
+                      cursor: pointer;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .footer-wrap {
+        background:#2c2e30;
+        .player {
+          padding: 16px 22px;
+          position: relative;
+          .current-track {
+            .artist-cover {
+              display: inline-block;
+              vertical-align: middle;
+              width: 30px;
+              height: 30px;
+              img {
+                width: 30px;
+                height: 30px;
+              }
+            }
+            .track-info {
+              width: 215px;
+              display: inline-block;
+              vertical-align: middle;
+              margin-left: 8px;
+              line-height: 18px;
+              .track-name {
+                font-size: 15px;
+                font-weight: 300;
+              }
+              .artist-name {
+                font-size: 13px;
+                color: #74e1b9;
+                font-weight: 200;
+              }
+            }
+            .controls {
+              position:absolute;
+              left:50%;
+              width: 100px;
+              margin-left: -50px;
+              top: 50%;
+              margin-top: -17px;
+              text-align: center;
+              span.icon {
+                display: inline-block;
+                vertical-align: middle;
+                font-family: 'alonsi';
+                &.back {
+                  font-size: 18px;
+                  cursor: pointer;
+                  color: #969da3;
+                  &:hover {
+                    color: white;
+                  }
+                  &:before {
+                    content: '\e805';
+                  }
+                }
+                &.play {
+                  color: white;
+                  cursor: pointer;
+                  font-size: 30px;
+                  margin: 0px 20px;
+                  &:hover {
+                    color: #33a18d;
+                  }
+                  &:before {
+                    content: '\e806';
+                  }
+                  &.active {
+                    &:before {
+                      content: '\e803'
+                    }
+                  }
+
+                }
+                &.next {
+                  font-size: 18px;
+                  cursor: pointer;
+                  color: #969da3;
+                  &:hover {
+                    color: white;
+                  }
+                  &:before {
+                    content: '\e804';
+                  }
+                }
+              }
+            }
+            .right-bar {
+              float:right;
+              padding: 8px;
+              .icon {
+                display: inline-block;
+                font-family: 'alonsi';
+                font-size: 18px;
+                cursor: pointer;
+                &.active {
+                  color:#33a18d;
+                  &:hover {
+                    color: #33a18d;
+                  }
+                }
+                &:hover {
+                  color: #969da3;
+                }
+                &:before {
+                  display: inline-block;
+                }
+              }
+              .repeat.icon {
+                margin-left: 16px;
+                &:before {
+                  content:"\e807";
+                }
+              }
+              .shuffle.icon {
+                display: inline-block;
+                &:before {
+                  content:"\e808";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .main-window
+//   .container
+//     .header
+//       .window-control
+//         span.point.white
+//         span.point.green
+//         span.point.silver
+//       .title Alonsi
+//       .search-wrap
+//         input.search-field type="text"
+//     .menu-wrap
+//       ul
+//         li
+//           a Discover
+//         li
+//           a Follow
+//         li
+//           a Inbox
+//         li
+//           a Playlists
+//         li
+//           a Devices
+//     .playlist-wrap
+//       h3.name Dopemusic 2014
+//       table
+//         thead
+//           th.like
+//           th.addtrack
+//           th Track
+//           th Artist
+//           th Album
+//           th Time
+//         tbody
+//           tr
+//             td
+//               span.like-icon
+//             td
+//               span.add-icon
+//             td Work Hard, Play Hard
+//             td Wiz Khalfa
+//             td O.N.F.C.
+//             td 3:39
+//     .footer-wrap
+//       .player
+//         .current-track
+//           .artist-cover
+//             img src="#"
+//           .track-name Kalifornia King Bed
+//           .artist-name Rihana
+
+//           .controls
+//             .back.icon
+//             .play.icon
+//             .next.icon
+
+//           .right-bar
+//             .cycle.icon
+//             .random.icon
+
+
+
+

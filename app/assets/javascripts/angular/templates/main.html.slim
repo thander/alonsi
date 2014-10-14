@@ -1,0 +1,47 @@
+.main-window
+  .container
+    .header
+      .window-control
+        span.point.white
+        span.point.green
+        span.point.silver
+      span.title Alonsi
+      .search-wrap
+        input.search-field type="text"
+    .menu-wrap.noselect
+      ul
+        li.discover ui-sref-active="active"
+          a ui-sref="main.topcharts" Top charts
+        li.follow ui-sref-active="active"
+          a ui-sref="main.discover" Discover
+        li.inbox ui-sref-active="active"
+          a ui-sref="main.tags" #tags
+        li.playlists ui-sref-active="active"
+          a ui-sref="main.myplaylists" My playlists
+        li.devices ui-sref-active="active"
+          a ui-sref="main.liked" Liked
+    .content-wrap
+      ui-view
+      / play list="currentPlaylist"
+    .footer-wrap
+      .player
+        .current-track
+          .artist-cover
+            img src="#"
+          .track-info
+            .track-name Kalifornia King Bed
+            .artist-name Rihana
+
+          .controls
+            span.back.icon
+            span.play.icon.active
+            span.next.icon
+
+          .right-bar
+            span.shuffle.icon.active
+            span.repeat.icon
+
+
+
+
+

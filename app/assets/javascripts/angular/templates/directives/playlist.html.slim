@@ -1,0 +1,28 @@
+.playlist-wrap
+  table
+    thead
+      th.padding
+      th.like
+      th.addtrack
+      th Track
+      th Artist
+      th Album
+      th Time
+    tbody
+      tr ng-repeat="track in playlist"
+        td
+        td
+          span.like-icon
+        td
+          span.add-icon
+        td.name
+          '{{track.track.name}}
+        td.artist
+          '{{track.track.artist.name}}
+        td.album
+          span ng-if="track.track.album"
+            '{{track.track.album}}
+          span ng-if="!track.track.album"
+            'Unknown
+        td.time
+          '{{track.track.duration*1000 | date:"m:ss"}}

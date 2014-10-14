@@ -1,0 +1,66 @@
+
+body {
+  margin:0;
+  padding:0;
+  background: url("/assets/blurred.jpg") no-repeat;
+  background-size:cover;
+  font-family: 'Roboto', sans-serif;
+}
+* {
+  &:focus {
+    outline: none;
+  }
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.welcome-line-wrapper {
+  height: 250px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -125px;
+  .welcome-line {
+    background: rgba(255, 255, 255, 0.8);
+    height: 150px;
+    .container {
+      margin:0 auto;
+      width: 960px;
+      .cover {
+        width: 200px;
+        display: inline-block;
+        margin-top: -25px;
+        vertical-align: middle;
+        padding-right: 25px;
+        img {
+          width: 200px;
+          height: 200px;
+        }
+        margin-top: -25px;
+      }
+      .info {
+        display: inline-block;
+        vertical-align: middle;
+        h2 {
+          font-size: 25px;
+          font-weight: lighter;
+          color: rgba(0, 0, 0, 0.60);
+        }
+        a {
+          color: rgb(75, 140, 175);
+          text-decoration: none;
+          display: inline-block;
+          padding-bottom:15px;
+          &:hover {
+            color: rgb(75, 140, 175) + #0f0f0f;
+          }
+        }
+      }
+    }
+  }
+}
