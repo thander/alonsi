@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, :only => [:index, :destroy]
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
+  resources :users, :only => [:index]
 
   resources :tracks, only: [:index] do
     collection do
       get "/topcharts", to: "tracks#topcharts"
+    end
+  end
+
+  resources :playlists, only: [:index, :create, :show] do
+    collection do
+      post "/add", to: "playlists#create_track"
     end
   end
 

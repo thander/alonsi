@@ -5,6 +5,9 @@ gem 'rails', '4.0.4'
 
 gem 'slim-rails'
 
+gem "therubyracer"
+gem 'execjs'
+
 
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem "mongoid", "~> 4.0.0"

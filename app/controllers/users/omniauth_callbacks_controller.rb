@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < ApplicationController
           render 'vkontakte'
         end
         format.json do
-          render json: user
+          @user = current_user
         end
       end
     else

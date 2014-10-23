@@ -1,12 +1,12 @@
-@alonsi = angular.module('Alonsi', ['ui.router', 'ui.bootstrap', 'templates', 'Devise', 'restangular', 'ng-rails-csrf'])
+@alonsi = angular.module('Alonsi', ['ui.router', 'ui.bootstrap', 'ui.slider', 'templates', 'Devise', 'restangular', 'ng-rails-csrf', 'ngSanitize', 'ngAnimate', 'cgBusy'])
 
-@alonsi.config ["RestangularProvider", "$locationProvider", "$stateProvider", "$urlRouterProvider", "$provide", "AuthProvider", (RestangularProvider, $locationProvider, $stateProvider, $urlRouterProvider, $provide, AuthProvider) ->
+@alonsi.config ["RestangularProvider", "$httpProvider", "$locationProvider", "$stateProvider", "$urlRouterProvider", "$provide", "AuthProvider", (RestangularProvider, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $provide, AuthProvider) ->
 
   RestangularProvider.setRequestSuffix '.json'
 
-  AuthProvider.loginPath('/users/sign_in.json');
+  AuthProvider.loginPath('/users/sign_in.json')
 
-  AuthProvider.logoutPath('/users/sign_out.json');
+  AuthProvider.logoutPath('/users/sign_out.json')
 
   # states
 
@@ -53,11 +53,11 @@
 
 @alonsi.run ["$rootScope", "$state", "$timeout", "$stateParams", "Auth", "$window", "$location", "Restangular", ($rootScope, $state, $timeout, $stateParams, Auth, $window, $location, Restangular) ->
 
-  $rootScope.getCurrentUser = ->
-    Auth.login().then (user) ->
-      $rootScope.currentUser = user
 
-  $rootScope.getCurrentUser()
+  Auth.login().then (user) ->
+    $rootScope.currentUser = user
+    $state.go("main.topcharts")
+
 
 
 ]

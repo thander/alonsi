@@ -1,4 +1,6 @@
 .main-window
+  .coverflow-wrap
+    img.coverflow ng-src="{{cover}}"
   .container
     .header
       .window-control
@@ -17,25 +19,32 @@
         li.inbox ui-sref-active="active"
           a ui-sref="main.tags" #tags
         li.playlists ui-sref-active="active"
-          a ui-sref="main.myplaylists" My playlists
+          a ui-sref="main.myplaylists" My playlist
         li.devices ui-sref-active="active"
           a ui-sref="main.liked" Liked
     .content-wrap
       ui-view
-      / play list="currentPlaylist"
+    .slider-separator
+      div.timeline ui-slider="slider" min="0" max="{{duration}}" ng-model="timeline"
+        / .ui-slider-range.ui-widget-header.ui-corner-all.ui-slider-range-min ng-style="{'width': timeline+'%'}"
     .footer-wrap
       .player
         .current-track
+          audio ng-src="{{src}}" id="player" preload=""
           .artist-cover
-            img src="#"
+            img ng-src="{{currentTrack.track.image[1].content}}"
           .track-info
-            .track-name Kalifornia King Bed
-            .artist-name Rihana
+            .track-name
+              '{{currentTrack.track.name}}
+            .artist-name
+              '{{currentTrack.track.artist.name}}
 
           .controls
-            span.back.icon
-            span.play.icon.active
-            span.next.icon
+            span.back.icon ng-click="Player.prev()"
+            span.play.icon ng-hide="playing" ng-click="Player.play()"
+            span.pause.icon ng-show="playing" ng-click="Player.pause()"
+
+            span.next.icon ng-click="Player.next()"
 
           .right-bar
             span.shuffle.icon.active

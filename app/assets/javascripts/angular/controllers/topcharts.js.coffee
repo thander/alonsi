@@ -3,9 +3,9 @@
   $rootScope.$on "devise:unauthorized", (event, xhr, deferred) ->
     document.location.href = '/'
 
-  Tracks.getTopCharts().then (data) ->
-    $scope.currentPlaylist = data
-    c data
+  angular.element(document).ready ->
+    $scope.promise = Tracks.getTopCharts().then (data) ->
+      $scope.$parent.Player.playlist = data
 
 
 ]

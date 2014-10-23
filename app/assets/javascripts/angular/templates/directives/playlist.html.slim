@@ -1,5 +1,5 @@
 .playlist-wrap
-  table
+  table.head
     thead
       th.padding
       th.like
@@ -9,20 +9,39 @@
       th Album
       th Time
     tbody
-      tr ng-repeat="track in playlist"
+      tr
         td
         td
-          span.like-icon
         td
-          span.add-icon
         td.name
-          '{{track.track.name}}
         td.artist
-          '{{track.track.artist.name}}
         td.album
-          span ng-if="track.track.album"
-            '{{track.track.album}}
-          span ng-if="!track.track.album"
-            'Unknown
         td.time
-          '{{track.track.duration*1000 | date:"m:ss"}}
+  .scrollable cg-busy="{promise:$parent.promise, message:'Loading', templateUrl:'busy/table.html', backdrop:true, delay:0, minDuration:0}"
+    table
+      thead
+        th.padding
+        th.like
+        th.addtrack
+        th
+        th
+        th
+        th
+        tbody
+          tr ng-repeat="track in playlist" ng-class="{'active': $parent.$parent.currentTrack == track}"
+            td
+            td
+              span.like-icon
+            td
+              span.add-icon ng-click="add(track)"
+            td.name ng-click="playthis(track)"
+              '{{track.track.name}} {{$parent.currentTrack}}
+            td.artist
+              '{{track.track.artist.name}}
+            td.album
+              span ng-if="track.track.album"
+                '{{track.track.album}}
+              span ng-if="!track.track.album"
+                'Unknown
+            td.time
+              '{{track.track.duration*1000 | date:"m:ss"}}

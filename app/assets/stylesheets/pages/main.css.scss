@@ -2,16 +2,42 @@
   .main-window {
     width: 718px;
     margin: 0 auto;
-    background: white;
+    background: silver;
     border-radius: 2px;
     overflow: hidden;
     margin-top: 100px;
+    position:relative;
     box-shadow: 0px 0px 2px 0px #6B6B6B;
+    .coverflow-wrap {
+      position: absolute;
+      z-index:0;
+      width:100%;
+      height:100%;
+      overflow: hidden;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+    }
+    img.coverflow {
+      z-index: 0;
+      position: absolute;
+      width: 100%;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      height: 100%;
+      -webkit-filter: blur(3px);
+      -moz-filter: blur(3px);
+      -o-filter: blur(3px);
+      -ms-filter: blur(3px);
+      filter: blur(3px);
+    }
     .container {
-      background-image: url("/assets/rihana.jpg");
       background-size: 100%;
       background-position: -1px;
       color: white;
+      position: relative;
+      z-index: 1;
       .header {
         height: 23px;
         background: #37C793;
@@ -73,7 +99,7 @@
       }
       .menu-wrap {
         height: 54px;
-        background: rgba(255, 255, 255, 0.26);
+        background: rgba(0, 0, 0, 0.36);
         ul {
           padding: 0;
           margin: 0;
@@ -84,7 +110,7 @@
             vertical-align: top;
             &.active {
               a {
-                background: rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.4);
               }
             }
             &.discover{
@@ -148,8 +174,8 @@
         }
       }
       .content-wrap {
-        background: rgba(255, 255, 255, 0.13);
-        padding-bottom: 21px;
+        background: rgba(0, 0, 0, 0.26);
+        padding-bottom: 4px;
         h3 {
           padding: 12px 24px;
           margin: 0;
@@ -158,12 +184,24 @@
           opacity: 0.9;
         }
         .playlist-wrap {
-          height: 242px;
-          overflow-y: scroll;
+          .scrollable {
+            overflow-y: scroll;
+            height: 300px;
+          }
           table {
             border-spacing:0;
             margin-top: 0;
             width:100%;
+            &.head {
+              background: rgba(0, 0, 0, 0.26);
+              th {
+                padding-bottom:0;
+                padding: 8px 1px;
+              }
+              td {
+                padding-bottom:0;
+              }
+            }
             thead {
               th {
                 font-size: 12px;
@@ -266,12 +304,45 @@
           }
         }
       }
+      .ui-slider{
+        position: absolute;
+        background: #176456;
+        margin-top: -4px;
+        height: 4px;
+        border-radius: 4px;
+        margin-bottom: 3px;
+        width: 100%;
+        z-index: 0;
+        cursor:pointer;
+        .ui-slider-range{
+          position: absolute;
+          background: #33a18d;
+          height: 100%;
+        }
+        .ui-slider-handle{
+          position: absolute;
+          z-index: 2;
+          cursor: pointer;
+          margin-top: -4px;
+          margin-left: -7px;
+          background: #4bd2b9;
+          border-radius: 2px;
+          width: 12px;
+          height: 17px;
+          outline: none;
+        }
+      }
       .footer-wrap {
         background:#2c2e30;
+        position: relative;
+        z-index: 1;
         .player {
           padding: 16px 22px;
           position: relative;
           .current-track {
+            audio {
+              display: none;
+            }
             .artist-cover {
               display: inline-block;
               vertical-align: middle;
@@ -326,18 +397,26 @@
                   cursor: pointer;
                   font-size: 30px;
                   margin: 0px 20px;
+                  width:18px;
                   &:hover {
                     color: #33a18d;
                   }
                   &:before {
                     content: '\e806';
                   }
-                  &.active {
-                    &:before {
-                      content: '\e803'
-                    }
+                }
+                &.pause {
+                  color: white;
+                  cursor: pointer;
+                  width:18px;
+                  font-size: 30px;
+                  margin: 0px 20px;
+                  &:hover {
+                    color: #33a18d;
                   }
-
+                  &:before {
+                    content: '\e803';
+                  }
                 }
                 &.next {
                   font-size: 18px;
