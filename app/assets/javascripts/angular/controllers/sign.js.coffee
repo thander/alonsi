@@ -1,5 +1,5 @@
 @Sign = ["$scope", "$state", ($scope, $state) ->
-  $scope.logintext = "Login with VK"
+  $scope.logintext = "Login with VKontakte"
 
   $scope.login =
     try: ->
