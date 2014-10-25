@@ -17,6 +17,16 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'httparty'
 
 
+# dev
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+end
+
+
 #omniOauth
 
 gem 'devise'
