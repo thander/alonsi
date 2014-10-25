@@ -20,6 +20,7 @@ gem 'httparty'
 # dev
 
 group :development do
+  gem 'thin', '1.6.2'
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
