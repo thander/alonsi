@@ -36,14 +36,6 @@ set :rbenv_ruby, '2.1.3'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-after 'deploy:publishing', 'deploy:restart'
-
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
-
 
 namespace :deploy do
 
