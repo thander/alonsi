@@ -7,6 +7,13 @@ Rails.application.routes.draw do
   resources :tracks, only: [:index] do
     collection do
       get "/topcharts", to: "tracks#topcharts"
+      get "/random", to: "tracks#random"
+    end
+  end
+
+  resources :tags, only: [:index] do
+    collection do
+      get "/tracks", to: "tags#tracks"
     end
   end
 

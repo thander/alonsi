@@ -1,3 +1,6 @@
+#viewport
+  #world
+
 .main-window
   .coverflow-wrap
     img.coverflow ng-src="{{cover}}"
@@ -16,7 +19,7 @@
           a ui-sref="main.topcharts" Top charts
         li.follow ui-sref-active="active"
           a ui-sref="main.discover" Discover
-        li.inbox ui-sref-active="active"
+        li.inbox ng-class="{'active':state.includes('main.tags')}"
           a ui-sref="main.tags" #tags
         li.playlists ui-sref-active="active"
           a ui-sref="main.myplaylists" My playlist

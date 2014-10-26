@@ -5,7 +5,8 @@
     getTrack: (track) ->
 
       token = $rootScope.currentUser.token
-      url = "https://api.vk.com/method/audio.search?access_token=#{token}&callback=JSON_CALLBACK&count=20&q=#{track.track.artist.name}%20-%20#{track.track.name}"
+      artist = if typeof track.track.artist.name is 'undefined' then track.track.artist else track.track.artist.name
+      url = "https://api.vk.com/method/audio.search?access_token=#{token}&callback=JSON_CALLBACK&count=20&q=#{artist}%20-%20#{track.track.name}"
 
       $http.jsonp(url).then (data) ->
         data = data.data
@@ -24,7 +25,8 @@
     getMainPlaylist: ->
       Restangular.all("playlists").getList()
 
-
+    getRandom: ->
+      Restangular.all("tracks").get("random")
 
   return tracks
 ]

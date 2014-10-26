@@ -1,6 +1,12 @@
 class TracksController < ApplicationController
   def topcharts
-    @topcharts = $lastfm.chart.get_top_tracks()
+    @tracks = $lastfm.chart.get_top_tracks()
+    render 'tracks'
+  end
+
+  def random
+    @tracks = $lastfm.chart.get_loved_tracks()
+    render 'tracks'
   end
 
   def index

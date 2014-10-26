@@ -6,8 +6,6 @@
   $rootScope.$on "devise:unauthorized", (event, xhr, deferred) ->
     document.location.href = '/'
 
-  $state.go("main.topcharts")
-
   $scope.playing = true
   $scope.cover = "/assets/rihana.jpg"
   $scope.timeline = 0

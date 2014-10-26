@@ -38,6 +38,11 @@
       templateUrl: 'tags/index.html'
       controller: 'Tags'
     )
+    .state('main.tags.tracks',
+      url: '/:tag'
+      templateUrl: 'tags/tracks.html'
+      controller: 'TracksByTag'
+    )
     .state('main.myplaylists',
       url: '/myplaylists'
       templateUrl: 'myplaylists/index.html'
@@ -55,8 +60,8 @@
 
 
   Auth.login().then (user) ->
+    $rootScope.state = $state
     $rootScope.currentUser = user
-    $state.go("main.topcharts")
 
 
 

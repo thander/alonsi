@@ -1,0 +1,35 @@
+.tags {
+  h3 {
+    span.back {
+      font-weight: 200;
+      display: inline-block;
+      margin-left: -20px;
+      padding: 0px 6px;
+      cursor: pointer;
+      &:hover {
+        color: silver;
+      }
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 25px;
+    li {
+      display: inline-block;
+      a {
+        font-weight: 200;
+        margin: 3px;
+        padding: 2px 5px;
+        font-size: 14px;
+        background: rgba(55, 199, 147, 0.64);
+        border-radius: 4px;
+        line-height: 31px;
+        cursor: pointer;
+        &:hover {
+          background: rgba(55, 199, 147, 0.9);
+        }
+      }
+    }
+  }
+}

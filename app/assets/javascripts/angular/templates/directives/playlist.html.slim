@@ -35,9 +35,11 @@
             td
               span.add-icon ng-click="add(track)"
             td.name ng-click="playthis(track)"
-              '{{track.track.name}} {{$parent.currentTrack}}
+              span
+                '{{track.track.name}} {{$parent.currentTrack}}
             td.artist
-              '{{track.track.artist.name}}
+              span
+                '{{track.track.artist.name}}
             td.album
               span ng-if="track.track.album"
                 '{{track.track.album}}

@@ -1,2 +1,7 @@
 .tags
-  h3.name Tags
+  ui-view
+    h3.name Tags
+    ul cg-busy="{promise:$parent.promise, message:'Loading', templateUrl:'busy/table.html', backdrop:true, delay:0, minDuration:0}"
+      li ng-repeat="tag in tags"
+        a ng-click="getByTag(tag.tag.name)"
+          '{{tag.tag.name}}
