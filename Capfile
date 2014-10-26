@@ -1,18 +1,13 @@
 # Load DSL and Setup Up Stages
-# require 'capistrano/setup'
+require 'capistrano/setup'
 
 # Includes default deployment tasks
 
-# require 'capistrano/deploy'
-# require 'capistrano/rbenv'
-# require 'capistrano/bundler'
-# require 'capistrano/rails/assets'
-# require 'capistrano/rails/migrations'
-
-
-load 'deploy'
-load 'deploy/assets'
-load 'config/deploy'
+require 'capistrano/deploy'
+require 'capistrano/rbenv'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
 
 set :rbenv_custom_path, '/home/ilnur/.rbenv'
 
