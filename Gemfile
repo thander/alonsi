@@ -23,7 +23,6 @@ group :production do
   gem 'thin', '1.6.2'
   gem 'capistrano', '~> 2.15'
   gem 'unicorn'
-  gem 'bundler'
 end
 
 
