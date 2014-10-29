@@ -21,10 +21,7 @@ gem 'httparty'
 
 group :production do
   gem 'thin', '1.6.2'
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rbenv'
+  gem 'capistrano', '~> 2.15'
   gem 'unicorn'
 end
 
