@@ -14,7 +14,12 @@ set :branch, "master"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
+after "deploy:setup", "deploy:create_release_dir"
+namespace :deploy do
+  task :create_release_dir, :except => {:no_release => true} do
+    run "mkdir -p #{fetch :releases_path}"
+  end
+end
 
 namespace :deploy do
   %w[start stop restart].each do |command|
