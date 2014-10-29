@@ -41,7 +41,6 @@ class User
 
   field :name, type: String
   field :last_name, type: String
-  field :username, type: String
   field :token, type: String
 
   def create_playlist
