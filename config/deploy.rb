@@ -11,6 +11,11 @@ set :scm, "git"
 set :repository, "git@github.com:thander/#{application}.git"
 set :branch, "master"
 
+set :default_environment, {
+  'PATH' => "#{deploy_to}/bin:$PATH",
+  'GEM_HOME' => "#{deploy_to}/gems"
+}
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
