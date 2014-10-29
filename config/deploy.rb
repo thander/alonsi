@@ -5,8 +5,8 @@ server "5.9.110.148", :web, :app, :db, primary: true
 set :application, "alonsi"
 set :user, "ilnur"
 set :deploy_to, "/home/#{user}/#{application}"
+set :deploy_via, :remote_cache
 set :use_sudo, false
-set :domain, "#{user}@5.9.110.148"
 set :scm, "git"
 set :repository, "git@github.com:thander/#{application}.git"
 set :branch, "master"
@@ -14,12 +14,7 @@ set :branch, "master"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-after "deploy:setup", "deploy:create_release_dir"
-namespace :deploy do
-  task :create_release_dir, :except => {:no_release => true} do
-    run "mkdir -p #{fetch :releases_path}"
-  end
-end
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
   %w[start stop restart].each do |command|
@@ -33,7 +28,7 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
-    put File.read("config/mongoid.yml"), "#{shared_path}/config/mongoid.yml"
+    put File.read("config/mongoid.example.yml"), "#{shared_path}/config/mongoid.yml"
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
