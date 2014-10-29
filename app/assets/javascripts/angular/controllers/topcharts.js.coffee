@@ -6,6 +6,7 @@
   angular.element(document).ready ->
     $scope.promise = Tracks.getTopCharts().then (data) ->
       $scope.$parent.Player.playlist = data
+      $rootScope.currentTrack = $rootScope.currentTrack
 
 
 ]

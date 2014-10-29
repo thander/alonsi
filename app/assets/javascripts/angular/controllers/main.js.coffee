@@ -6,6 +6,9 @@
   $rootScope.$on "devise:unauthorized", (event, xhr, deferred) ->
     document.location.href = '/'
 
+  if $state.current.name is 'main'
+    $state.go "main.topcharts"
+
   $scope.playing = true
   $scope.cover = "/assets/rihana.jpg"
   $scope.timeline = 0
@@ -21,7 +24,7 @@
     play: (track = false) ->
       $scope.playing = true
       if track
-        $scope.currentTrack = track
+        $rootScope.currentTrack = track
         Tracks.getTrack(track).then (data) ->
           $scope.duration = parseInt(data.duration)
           $scope.src = $sce.trustAsResourceUrl(data.url)
@@ -34,12 +37,12 @@
       $scope.playing = false
       player.pause()
     next: ->
-      index = this.playlist.indexOf($scope.currentTrack)
+      index = this.playlist.indexOf($rootScope.currentTrack)
       index += 1
       player.pause()
       this.play(this.playlist[index])
     prev: ->
-      index = this.playlist.indexOf($scope.currentTrack)
+      index = this.playlist.indexOf($rootScope.currentTrack)
       index -= 1
       player.pause()
       this.play(this.playlist[index])

@@ -28,7 +28,7 @@
         th
         th
         tbody
-          tr ng-repeat="track in playlist" ng-class="{'active': $parent.$parent.currentTrack == track}"
+          tr ng-repeat="track in playlist" ng-class="{'active': $root.currentTrack == track}"
             td
             td
               span.like-icon
@@ -36,7 +36,7 @@
               span.add-icon ng-click="add(track)"
             td.name ng-click="playthis(track)"
               span
-                '{{track.track.name}} {{$parent.currentTrack}}
+                '{{track.track.name}}
             td.artist
               span
                 '{{track.track.artist.name}}

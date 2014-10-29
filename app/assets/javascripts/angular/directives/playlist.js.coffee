@@ -1,4 +1,4 @@
-@alonsi.directive "play", ["Tracks", (Tracks) ->
+@alonsi.directive "play", ["Tracks", "$rootScope", "$timeout", "$compile", (Tracks, $rootScope, $timeout, $compile) ->
   restrict: "E"
   replace: true
   scope: {playlist: '=list'}
@@ -6,10 +6,11 @@
   link: (scope, element, attrs) ->
 
     scope.playthis = (track) ->
-      scope.$parent.$parent.currentTrack = track
       scope.$parent.Player.play(track)
 
     scope.add = (track) ->
       Tracks.addToPlaylist(track).then (data) ->
         c data
+
+
 ]
