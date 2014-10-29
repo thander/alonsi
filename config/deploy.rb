@@ -14,8 +14,6 @@ set :branch, "master"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
-
 namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
