@@ -10,11 +10,7 @@ set :use_sudo, false
 set :scm, "git"
 set :repository, "git@github.com:thander/#{application}.git"
 set :branch, "master"
-
-set :default_environment, {
-  'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
-}
-
+set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
