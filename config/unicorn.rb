@@ -6,6 +6,7 @@ pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
+
 listen "/home/#{user}/#{app}/shared/unicorn.alonsi.sock"
 # listen socket_file, :backlog => 1024
 worker_processes 2
