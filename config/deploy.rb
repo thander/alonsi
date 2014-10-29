@@ -1,3 +1,4 @@
+default_run_options[:shell] = '/bin/bash --login'
 require "bundler/capistrano"
 
 server "5.9.110.148", :web, :app, :db, primary: true
@@ -10,11 +11,6 @@ set :use_sudo, false
 set :scm, "git"
 set :repository, "git@github.com:thander/#{application}.git"
 set :branch, "master"
-
-set :default_environment, {
-  'PATH' => "#{deploy_to}/bin:$PATH",
-  'GEM_HOME' => "#{deploy_to}/gems"
-}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
