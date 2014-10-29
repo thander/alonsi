@@ -4,7 +4,7 @@ server "5.9.110.148", :web, :app, :db, primary: true
 
 set :application, "alonsi"
 set :user, "ilnur"
-set :deploy_to, "/home/#{user}/#{application}"
+set :deploy_to, "/home/#{user}/#{application}/current"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :scm, "git"
@@ -49,3 +49,4 @@ namespace :deploy do
   end
   before "deploy", "deploy:check_revision"
 end
+after :deploy, "deploy:create_symlink"
