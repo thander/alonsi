@@ -5,7 +5,7 @@ server "5.9.110.148", :web, :app, :db, primary: true
 set :application, "alonsi"
 set :user, "ilnur"
 set :deploy_to, "/home/#{user}/#{application}"
-# set :deploy_via, :remote_cache
+set :deploy_via, :remote_cache
 set :use_sudo, false
 set :scm, "git"
 set :repository, "git@github.com:thander/#{application}.git"
@@ -13,6 +13,9 @@ set :branch, "master"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+
+set :keep_releases, 1
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
   %w[start stop restart].each do |command|
