@@ -11,6 +11,8 @@ set :use_sudo, false
 set :scm, "git"
 set :repository, "git@github.com:thander/#{application}.git"
 set :branch, "master"
+set :domain, "#{user}@5.9.110.148"
+set :shared_children, shared_children + %w{public/uploads}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
