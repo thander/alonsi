@@ -1,4 +1,4 @@
-@Sign = ["$scope", "$state", "Auth", ($scope, $state, Auth) ->
+@Sign = ["$scope", "$state", "Auth", "$rootScope", ($scope, $state, Auth, $rootScope) ->
   $scope.logintext = "Login with VKontakte"
 
   $scope.login =
@@ -10,7 +10,6 @@
 
   Auth.login().then (user) ->
     $rootScope.currentUser = user
-    $state.go("main.topcharts")
-
+    $state.go "main.topcharts"
 
 ]
