@@ -90,7 +90,7 @@
             padding-left: 23px;
             color: white;
             width: 124px;
-            background-image: url("/assets/search-icon.png");
+            background-image: image-url('search-icon.png');
             background-size: 12px;
             background-repeat: no-repeat;
             background-position: 7px;
@@ -116,35 +116,35 @@
             &.discover{
               a {
                 &:before {
-                  background-image: url("/assets/menu-icon1.png");
+                  background-image: image-url("menu-icon1.png");
                 }
               }
             }
             &.follow{
               a {
                 &:before {
-                  background-image: url("/assets/menu-icon2.png");
+                  background-image: image-url("menu-icon2.png");
                 }
               }
             }
             &.inbox{
               a {
                 &:before {
-                  background-image: url("/assets/menu-icon3.png");
+                  background-image: image-url("menu-icon3.png");
                 }
               }
             }
             &.playlists{
               a {
                 &:before {
-                  background-image: url("/assets/menu-icon4.png");
+                  background-image: image-url("menu-icon4.png");
                 }
               }
             }
             &.devices{
               a {
                 &:before {
-                  background-image: url("/assets/menu-icon5.png");
+                  background-image: image-url("menu-icon5.png");
                 }
               }
             }
