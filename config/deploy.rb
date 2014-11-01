@@ -8,6 +8,8 @@ set :user, "ilnur"
 set :deploy_to, "/home/#{user}/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
+set :rails_env, 'production'
+
 set :scm, "git"
 set :repository, "git@github.com:thander/#{application}.git"
 set :branch, "master"
