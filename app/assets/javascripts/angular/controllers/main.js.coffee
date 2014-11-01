@@ -33,16 +33,25 @@
             player.play()
       else
         player.play()
+        if !$scope.$$phase
+          $scope.$apply()
     pause: ->
       $scope.playing = false
       player.pause()
     next: ->
-      index = this.playlist.indexOf($rootScope.currentTrack)
+      index = 0
+      _.each this.playlist, (item, i) ->
+        if $rootScope.currentTrack.track.url is item.track.url
+          index = i
+
       index += 1
       player.pause()
       this.play(this.playlist[index])
     prev: ->
-      index = this.playlist.indexOf($rootScope.currentTrack)
+      index = 0
+      _.each this.playlist, (item, i) ->
+        if $rootScope.currentTrack.track.url is item.track.url
+          index = i
       index -= 1
       player.pause()
       this.play(this.playlist[index])
