@@ -28,7 +28,7 @@
         th
         th
         tbody
-          tr ng-repeat="track in playlist track by $index" ng-class="{'active': $root.currentTrack.track.url == track.track.url}"
+          tr ng-repeat="track in playlist track by $index" ng-class="{'active': $root.currentTrack.track.mbid == track.track.mbid}"
             td
             td
               span.like-icon

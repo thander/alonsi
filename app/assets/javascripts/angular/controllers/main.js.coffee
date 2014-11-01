@@ -41,7 +41,7 @@
     next: ->
       index = 0
       _.each this.playlist, (item, i) ->
-        if $rootScope.currentTrack.track.url is item.track.url
+        if $rootScope.currentTrack.track.mbid is item.track.mbid
           index = i
 
       index += 1
@@ -50,7 +50,7 @@
     prev: ->
       index = 0
       _.each this.playlist, (item, i) ->
-        if $rootScope.currentTrack.track.url is item.track.url
+        if $rootScope.currentTrack.track.mbid is item.track.mbid
           index = i
       index -= 1
       player.pause()
