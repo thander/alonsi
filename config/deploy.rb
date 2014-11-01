@@ -1,4 +1,4 @@
-# default_run_options[:shell] = '/bin/bash --login'
+default_run_options[:shell] = '/bin/bash --login'
 require "bundler/capistrano"
 
 server "5.9.110.148", :web, :app, :db, primary: true
