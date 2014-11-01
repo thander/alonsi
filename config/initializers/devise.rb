@@ -226,11 +226,21 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :get
 
-  config.omniauth :vkontakte, '4580444', 'rKOBagOPJoxPP8Xl4tqa',
+  if Rails.env.development?
+    config.omniauth :vkontakte, '4580444', 'rKOBagOPJoxPP8Xl4tqa',
+      {
+        :scope => 'audio',
+      }
+  end
+
+
+
+  if Rails.env.production?
+    config.omniauth :vkontakte, '4614638', 'ON9k8AkbGQlQ0omZEVeE',
     {
       :scope => 'audio',
     }
-
+  end
 
 
 end
