@@ -10,8 +10,11 @@ class User
   after_create            :create_playlist
 
 
+
+
+
   ## Database authenticatable
-  field :email,              type: String, default: ""
+
   field :encrypted_password, type: String, default: ""
 
   # Setup accessible (or protected) attributes for your model
@@ -48,12 +51,21 @@ class User
   end
 
 
+  def email_changed?
+
+  end
+
+  def email_required?
+    super && provider.blank?
+  end
+
+
   def self.find_for_vkontakte_oauth access_token
     if user = User.where(:url => access_token.info.urls.Vkontakte).first
       user.update(token: access_token.credentials.token, :avatar => access_token.info.image, :url => access_token.info.urls.Vkontakte, :username => access_token.info.name, :nickname => access_token.extra.raw_info.domain)
       user
     else
-      @user = User.create!(token: access_token.credentials.token, :avatar => access_token.info.image, :provider => access_token.provider, :url => access_token.info.urls.Vkontakte, :username => access_token.info.name, :nickname => access_token.extra.raw_info.domain, :email => "noemail@email.com", :password => Devise.friendly_token[0,20])
+      @user = User.create!(token: access_token.credentials.token, :avatar => access_token.info.image, :provider => access_token.provider, :url => access_token.info.urls.Vkontakte, :username => access_token.info.name, :nickname => access_token.extra.raw_info.domain, :password => Devise.friendly_token[0,20])
     end
   end
 
